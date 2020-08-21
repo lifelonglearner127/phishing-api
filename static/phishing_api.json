@@ -1,0 +1,91 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "Url Phishing Detection Model Api"
+  },
+
+  "tags": [
+    {
+      "name": "Usage",
+      "description": "Sumbit url link for classification"
+    }
+  ],
+  "paths": {
+    "/url": {
+      "post": {
+        "tags": [
+          "Requests"
+        ],
+        "summary": "Submit Url",
+        "requestBody": {
+          "description": "Recognize url post params",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/classifyUrl"
+              }
+            }
+          }
+        },
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/components/schemas/id"
+            }
+          },
+          "400": {
+            "description": "Failed. Bad post data."
+          }
+        }
+      }
+    },
+    "/api_readiness": {
+      "get": {
+        "tags": [
+          "Requests"
+        ],
+        "summary": "Check Api Readiness",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/components/schemas/id"
+            }
+          },
+          "500": {
+            "description": "Failed. Internal Server Error."
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "id": {
+        "properties": {
+          "uuid": {
+            "type": "string"
+          }
+        }
+      },
+      "classifyUrl": {
+        "type": "object",
+        "properties": {
+          "url": {
+            "type": "string",
+            "format": "string"
+          }
+        }
+      }
+    }
+  }
+}

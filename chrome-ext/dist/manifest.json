@@ -1,0 +1,31 @@
+{
+  "name": "Url Phishing Detection",
+  "version": "0.2",
+  "description": "Chrome extension for using pretrained Model CNN to phishing url phising detection on web pages!",
+  "homepage_url": "https://www.fiverr.com/",
+  "author": "kelvinthewriter",
+  "permissions": [
+    "activeTab",
+    "declarativeContent",
+    "webRequest",
+    "webRequestBlocking",
+    "<all_urls>",
+    "storage",
+    "tabs"
+  ],
+  "background": {
+    "scripts": ["src/background.js"],
+    "persistent": true
+  },
+  "content_scripts": [
+    {
+      "matches": ["http://*/*", "https://*/*"],
+      "js": ["src/content.js"],
+      "all_frames": false,
+      "run_at": "document_end"
+    }
+  ],
+  "web_accessible_resources" : [ "*.html","src/modal_template.html"],
+  "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
+  "manifest_version": 2
+}

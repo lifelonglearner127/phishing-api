@@ -1,0 +1,9 @@
+*.pyc
+__pycache__/
+.env/
+database_phishtank.json
+.vscode/
+lib/files/
+lib/__pycache__/
+chrome-ext/node_modules/
+chrome-ext/.cache/
