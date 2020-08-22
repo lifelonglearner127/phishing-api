@@ -1,3 +1,29 @@
+## Overview
+This project consist of chrome extension as a frontend and flask backend.
+
+### How chrome extension works
+If the url changes on chrome, the extension will send url to backend server. The backend server will check the url whether it is phishing or not and send the result to the chrome extension. Chrome extension will show the dialog if trained model say it is phishing url
+
+
+Development Packages
+    node.js
+
+
+## How backend works
+Backend loads the CNN model and check if requested url is phishing or not. So in order to train the model, we need to extract the features from the dataset. We extract about 91 features from each urls and train a CNN model based on that features.
+
+Development Packages:
+    Python, Tensorflow, Keras, Jupyter, Sciki-learn
+
+Dataset:
+    - 4000 urls of benign
+    - 4000 urls of phishing urls
+    - We 91 extract features from each url. Features would be hostname, domain, ip, etc
+
+CNN archituecture:
+    - CONV -> ACT -> POOL -> ACT
+
+
 
 ## Dev Environment Set-up
 

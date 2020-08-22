@@ -17,15 +17,14 @@ class BackgroundProcessing {
   
  // listen to user web interactions  every time a user visits a browser get the url to submit to the model backend
   addListeners() {
-    chrome.tabs.onActivated.addListener(req => {
-       let self = this;
-        chrome.tabs.getSelected(null, function(tab) {
-          var currentURL = tab.url;
-            if(currentURL && currentURL.indexOf("devtools") == -1 && currentURL.indexOf("chrome://") == -1){
-              self.imageRequests[currentURL] = self.imageRequests[currentURL] || tab;
-              self.analyzeUrl(currentURL);
+    chrome.tabs.onUpdated.addListener((tabId, changeInfo, tabInfo) => {
+        if (changeInfo.status == "loading") {
+            let currentURL = tabInfo.url;
+            if(currentURL && currentURL.indexOf("devtools") == -1 && currentURL.indexOf("chrome://") == -1) {
+                this.imageRequests[currentURL] = tabInfo;
+                this.analyzeUrl(currentURL);
             }
-          });
+        }
     });
   }
 

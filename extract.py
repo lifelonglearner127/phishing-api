@@ -356,4 +356,9 @@ def main(urls, dataset, phishing):
 
 
 if __name__ == "__main__":
-    extract_features("https://bcwfek.nut.cc/,,,,,,,,,")
+    from datetime import datetime
+    before = datetime.now()
+    print(before)
+    extract_features("https://thefamousfitnessplan.com")
+    after = datetime.now()
+    print((after - before).total_seconds())

@@ -22,7 +22,7 @@
       "matches": ["http://*/*", "https://*/*"],
       "js": ["src/content.js"],
       "all_frames": false,
-      "run_at": "document_end"
+      "run_at": "document_start"
     }
   ],
   "web_accessible_resources" : [ "*.html","src/modal_template.html"],
