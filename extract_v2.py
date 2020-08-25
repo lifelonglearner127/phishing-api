@@ -24,7 +24,13 @@ LANG_MAP = {
     'torrent': 17,
     'txt': 18,
     'xhtml': 19,
-    'nan': 20
+    'js': 20,
+    'exe': 21,
+    'dll': 22,
+    'zip': 23,
+    'jar': 24,
+    'bin': 25,
+    'nan': 26,
 }
 COUNTRY_MAP = {
     'AE': 0,
@@ -364,6 +370,6 @@ if __name__ == "__main__":
     from datetime import datetime
     before = datetime.now()
     print(before)
-    extract_features("https://thefamousfitnessplan.com")
+    extract_features("kalantzis.net")
     after = datetime.now()
     print((after-before).total_seconds())

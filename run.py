@@ -1,5 +1,6 @@
 import argparse
 import extract
+import extract_v2
 
 
 def main():
@@ -14,7 +15,7 @@ def main():
         # update_db()
         # Starts extraction
         print('Starts training features extraction...')
-        extract.main(args.input, args.output, args.phishing)
+        extract_v2.main(args.input, args.output, args.phishing)
         print('''
                 #######################################
                 #   Dataset generated successfully!   #
